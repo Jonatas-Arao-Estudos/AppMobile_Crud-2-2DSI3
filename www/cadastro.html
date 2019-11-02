@@ -18,12 +18,25 @@
 
 <body class="bg-blue-grey-lighten-5">
 
-  <nav class="container text-center py-2 bg-blue-grey-darken-3 text-white shadow">
+  <script>
+    $(document).ready(function(){
+      var email = sessionStorage.getItem('preCadastroEmail');
+      var senha = sessionStorage.getItem('preCadastroSenha');
+      $('#email').val(email);
+      $('#senha').val(senha);
+      sessionStorage.removeItem('preCadastroEmail');
+      email = null;
+      sessionStorage.removeItem('preCadastroSenha');
+      senha = null;
+    });
+  </script>
+
+  <nav class="container text-center py-3 bg-blue-grey-darken-3 text-white shadow">
     <h1 class="h3">App</h1>
   </nav>
 
   <section class="container mt-3">
-    <form id="frmUsuario">
+    <form method="POST" id="frmUsuario">
       <fieldset>
         <legend class="text-center">Cadastro</legend>
         <div class="form-group">
@@ -40,7 +53,10 @@
         </div>
       </fieldset>
       <div class="form-row">
-         <button type="submit" class="btn btn-outline-dark shadow-sm mx-auto">Cadastrar</button>
+        <div class="mx-auto">
+          <a href="index.html" class="btn btn-outline-dark shadow-sm mx-1">Voltar</a>
+          <button type="submit" class="btn btn-outline-dark shadow-sm mx-auto">Cadastrar</button>
+        </div>
       </div>
     </form>
   </section>
