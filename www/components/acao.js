@@ -16,13 +16,18 @@ $(document).on('submit','#frmLogin',function(){
 		url: 'https://atividadeappcrudinho.000webhostapp.com/controlUsuario.php?acao=login',
 		type: 'POST',
 		data: dados,
+    dataType:"json",
 		success:function(retorno){
-			if(retorno == 1){
+			if(retorno.usuario.logado == 1){
         window.location.href = "home.html";
-        sessionStorage.setItem('logado','padrao');
-      }else if(retorno == 2){
-        window.location.href = "home.html";
-        sessionStorage.setItem('logado','admin');
+        if(retorno.usuario.admin == "F"){
+          sessionStorage.setItem('logado','padrao');
+        }else{
+          sessionStorage.setItem('logado','admin');
+        }  
+        sessionStorage.setItem('codigo',retorno.usuario.codigo);
+        sessionStorage.setItem('nome',retorno.usuario.nome);
+        sessionStorage.setItem('email',retorno.usuario.email);
       }else{
         navigator.notification.alert("Usuário ou senha incorretos");
       }
