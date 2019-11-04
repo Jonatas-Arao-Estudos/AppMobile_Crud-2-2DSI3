@@ -27,6 +27,14 @@
       if(sessionStorage.getItem('logado') == 'admin'){
         window.location.href = "home.html";
       }
+      var email = sessionStorage.getItem('preCadastroEmail');
+      var senha = sessionStorage.getItem('preCadastroSenha');
+      $('#email').val(email);
+      $('#senha').val(senha);
+      sessionStorage.removeItem('preCadastroEmail');
+      email = null;
+      sessionStorage.removeItem('preCadastroSenha');
+      senha = null;
     });
   </script>
 

@@ -22,7 +22,7 @@
     <script>
       $(document).ready(function(){
         if(sessionStorage.getItem('logado') == 'admin'){
-          $('#nav-itens').append('<a class="nav-link text-white" href="#">Admin</a>')
+          $('#admin').append('<a class="nav-link text-white" href="#">Admin</a>')
         }
       });
     </script>
@@ -33,10 +33,12 @@
   </nav>
 
   <div id="sidenav" class="bg-blue-grey-darken-3 shadow-lg">
-    <nav class="nav flex-column" id="nav-itens">
+    <nav class="nav flex-column">
       <a class="nav-link text-white" href="#">Perfil</a>
       <a class="nav-link text-white" href="#">Amigos</a>
       <a class="nav-link text-white" href="#">Chat</a>
+      <span id="admin"></span>
+      <a class="nav-link text-white" id="logout">Sair</a>
     </nav>
   </div>
 

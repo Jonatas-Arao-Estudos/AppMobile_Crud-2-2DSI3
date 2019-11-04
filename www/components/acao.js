@@ -37,6 +37,10 @@ $(document).on('submit','#frmLogin',function(){
 });
 
 $(document).on('submit','#frmUsuario',function(){
+  var email = $('#email').val();
+  var senha = $('#senha').val();
+  sessionStorage.setItem('preCadastroEmail', email);
+  sessionStorage.setItem('preCadastroSenha', senha);
 	var dados = $(this).serialize();
 	$.ajax({
 		url: 'https://atividadeappcrudinho.000webhostapp.com/controlUsuario.php?acao=cadastrar',
@@ -48,4 +52,12 @@ $(document).on('submit','#frmUsuario',function(){
 		}
 	});
 	return false;
+});
+
+$(document).on('click','#logout',function(){
+	sessionStorage.removeItem('logado');
+  sessionStorage.removeItem('codigo');
+  sessionStorage.removeItem('nome');
+  sessionStorage.removeItem('email');
+  window.location.href = "index.html";
 });
