@@ -22,8 +22,9 @@
     <script>
       $(document).ready(function(){
         if(sessionStorage.getItem('logado') == 'admin'){
-          $('#admin').append('<a class="nav-link text-white" href="#">Admin</a>')
+          $('#admin').append('<a class="nav-link text-white" id="mostraAdmin">Admin</a>');
         }
+        $('#appTela').load('meuPerfil.html');
       });
     </script>
 
@@ -34,16 +35,17 @@
 
   <div id="sidenav" class="bg-blue-grey-darken-3 shadow-lg">
     <nav class="nav flex-column">
-      <a class="nav-link text-white" href="#">Perfil</a>
-      <a class="nav-link text-white" href="#">Amigos</a>
-      <a class="nav-link text-white" href="#">Chat</a>
+       <a class="nav-link text-white" id="telaInicial">Ínicio</a>
+      <a class="nav-link text-white" id="editarPerfil">Editar Perfil</a>
+      <a class="nav-link text-white" id="mostraUsuarios">Usuarios</a>
+      <a class="nav-link text-white" id="mostraAmigos">Amigos</a>
+      <!-- <a class="nav-link text-white" id="mostraChat">Chat</a> -->
       <span id="admin"></span>
       <a class="nav-link text-white" id="logout">Sair</a>
     </nav>
   </div>
 
-  <section class="container mt-3">
-    
+  <section class="container mt-3" id="appTela">
   </section>
   
 </body>

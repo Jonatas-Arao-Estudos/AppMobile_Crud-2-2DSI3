@@ -1,0 +1,62 @@
+<script>
+      $(document).ready(function(){
+        listar();
+      });
+</script>
+<div class="row">
+  <div class="col-12">
+    <h3 class="text-center">Lista de Usuários</h3>
+    <select id="listaUsuario" class="form-control">
+      <option disabled selected>Escolha o usuário</option>
+    </select>
+  </div>
+</div>
+<div id="usuarios" style="display: none;">
+      <div class="row mt-3 bg-blue-grey py-2 shadow text-white">
+        <div class="col-4">
+          <img src="img/usuario.png" class="img-fluid img-thumbnail rounded-circle shadow">
+        </div>
+        <div class="col-8 d-flex flex-column justify-content-center align-items-center">
+          <h2 id="usuarioNome">Nome</h2>
+        </div>
+      </div>
+      <div class="row bg-blue-grey-lighten-3 shadow px-2 py-2" >
+        <h5>Cidade: <span id="usuarioCidade"></span></h5>
+      </div>
+
+      <div class="row bg-blue-grey-lighten-2 shadow px-2 py-2 text-white" >
+        <h5>Data de Nascimento: <span id="usuarioNasc"></span></h5>
+      </div>
+
+      <div class="row bg-blue-grey-lighten-3 shadow px-2 py-2">
+        <h5>Bio: <span id="usuarioBio"></span></h5>
+      </div>
+
+      <form method="post" id="addAmizade" class="form-row mt-3">
+        <input type="hidden" name="solicitante" id="addSolicitante" class="usuario">
+        <input type="hidden" name="solicitado" id="addSolicitado" class="perfil">
+        <button type="submit" class="btn btn-outline-dark shadow-sm mx-auto">Solicitar Amizade</button>
+      </form>
+
+      <form method="post" id="delAmizade" class="form-row mt-3">
+        <input type="hidden" name="solicitante" id="delSolicitante" class="usuario">
+        <input type="hidden" name="solicitado" id="delSolicitado" class="perfil">
+        <button type="submit" class="btn btn-outline-dark shadow-sm mx-auto">Desfazer Amizade</button>
+      </form>
+
+      <form method="post" id="okAmizade" class="form-row mt-3">
+        <input type="hidden" name="solicitante" id="okSolicitante" class="perfil">
+        <input type="hidden" name="solicitado" id="okSolicitado" class="usuario">
+        <button type="submit" class="btn btn-outline-dark shadow-sm mx-auto">Aceitar Amizade</button>
+      </form>
+
+      <form method="post" id="negAmizade" class="form-row mt-3">
+        <input type="hidden" name="solicitante" id="negSolicitante" class="perfil">
+        <input type="hidden" name="solicitado" id="negSolicitado" class="usuario">
+        <button type="submit" class="btn btn-outline-dark shadow-sm mx-auto">Negar Amizade</button>
+      </form>
+
+      <div class="row mt-3" id="solAmizade">
+        <button class="btn btn-outline-dark mx-auto">Solicitação Enviada</button>
+      </div>
+    </div>
